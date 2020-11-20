@@ -1,4 +1,5 @@
 .build
 build
+/lib
 web_modules
 node_modules

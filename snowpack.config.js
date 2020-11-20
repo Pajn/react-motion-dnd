@@ -1,14 +1,11 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
   mount: {
-    public: '/',
-    src: '/_dist_',
+    public: "/",
+    src: "/src",
+    examples: "/examples",
   },
-  plugins: [
-    '@snowpack/plugin-react-refresh',
-    '@snowpack/plugin-dotenv',
-    '@snowpack/plugin-typescript',
-  ],
+  plugins: ["@snowpack/plugin-react-refresh", "@snowpack/plugin-typescript"],
   install: [
     /* ... */
   ],
@@ -16,7 +13,7 @@ module.exports = {
     /* ... */
   },
   devOptions: {
-    /* ... */
+    port: 3075,
   },
   buildOptions: {
     /* ... */
@@ -25,6 +22,7 @@ module.exports = {
     /* ... */
   },
   alias: {
-    /* ... */
+    "@examples": "./examples",
+    "@lib": "./src",
   },
-};
+}
