@@ -5,14 +5,19 @@
   "repository": "Pajn/react-motion-dnd",
   "homepage": "https://pajn.github.io/react-motion-dnd/",
   "author": "Rasmus Eneman <rasmus@eneman.eu>",
-  "main": "lib/index.js",
+  "main": "cjs/index.js",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "files": [
+    "cjs",
     "lib",
     "!/**/__tests__"
   ],
   "scripts": {
     "start": "snowpack dev",
-    "build": "tsc --build tsconfig.build.json",
+    "build": "yarn build::esm && yarn build::cjs",
+    "build::esm": "tsc --build tsconfig.build.json",
+    "build::cjs": "tsc --build tsconfig.build-cjs.json",
     "build-docs": "snowpack build",
     "test": "web-test-runner \"{examples,src}/**/*.test.tsx\"",
     "api::check": "api-extractor run",

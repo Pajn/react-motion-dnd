@@ -5,7 +5,11 @@ module.exports = {
     src: "/src",
     examples: "/examples",
   },
-  plugins: ["@snowpack/plugin-react-refresh", "@snowpack/plugin-typescript"],
+  plugins: [
+    "./snowpack-plugins/hmr-decline.js",
+    "@snowpack/plugin-react-refresh",
+    "@snowpack/plugin-typescript",
+  ],
   install: [
     /* ... */
   ],

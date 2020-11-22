@@ -92,7 +92,6 @@ export function useDrag(options?: {
       }
     },
     onLayoutAnimationComplete() {
-      console.log("onLayoutAnimationComplete")
       controller.isLifted = false
 
       if (controller.isMounted) {

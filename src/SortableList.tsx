@@ -429,7 +429,3 @@ export function useSortabeListItem() {
 
   return { ...dragItem, props }
 }
-
-if (import.meta.hot) {
-  import.meta.hot.decline()
-}
