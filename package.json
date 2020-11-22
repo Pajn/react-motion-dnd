@@ -19,7 +19,8 @@
     "api::update": "api-extractor run --local",
     "format": "prettier --write \"{examples,src}/**/*.{js,jsx,ts,tsx}\"",
     "format::check": "prettier --check \"{examples,src}/**/*.{js,jsx,ts,tsx}\"",
-    "prepublishOnly": "yarn build && yarn api::check"
+    "validate": "yarn format::check && yarn build && yarn api::check && yarn test",
+    "prepublishOnly": "yarn validate"
   },
   "dependencies": {
     "array-move": "^3.0.1",
