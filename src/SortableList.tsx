@@ -1,5 +1,6 @@
 import move from "array-move"
-import { motion, MotionProps, PanInfo } from "framer-motion"
+import type * as framerMotion from "framer-motion"
+import { motion } from "framer-motion"
 import React, {
   createContext,
   ReactElement,
@@ -31,7 +32,7 @@ const buffer = 5
 
 const findIndex = (
   i: number,
-  info: PanInfo,
+  info: framerMotion.PanInfo,
   pointerOffset: { top: number; left: number } | undefined,
   positions: Array<Position>,
 ) => {
@@ -85,7 +86,7 @@ const listInfo = createDragType<ListInfo>("list-info")
 const useListId = createSequence()
 const spacerKey = {}
 
-type SortableListProps<T, U, C> = {
+export type SortableListProps<T, U, C> = {
   items: Array<T>
   moveItem: (fromIndex: number, toIndex: number, item: T) => void
   renderItem: (params: { item: T; index: number }) => ReactElement
@@ -101,7 +102,7 @@ type SortableListProps<T, U, C> = {
 export const SortableList = <
   T extends object,
   U extends object = never,
-  C extends React.ComponentType<MotionProps> = typeof motion.ol
+  C extends React.ComponentType<framerMotion.MotionProps> = typeof motion.ol
 >(
   props: SortableListProps<T, U, C> &
     Omit<

@@ -1,6 +1,6 @@
 {
   "name": "react-motion-dnd",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Drag and drop library for react with beautiful animations",
   "repository": "Pajn/react-motion-dnd",
   "homepage": "https://pajn.github.io/react-motion-dnd/",
