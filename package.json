@@ -2,6 +2,7 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "tsc --build tsconfig.build.json",
+    "build-docs": "snowpack build",
     "test": "web-test-runner \"{examples,src}/**/*.test.tsx\"",
     "format": "prettier --write \"{examples,src}/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"{examples,src}/**/*.{js,jsx,ts,tsx}\""

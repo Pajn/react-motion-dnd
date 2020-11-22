@@ -16,7 +16,7 @@ module.exports = {
     port: 3075,
   },
   buildOptions: {
-    /* ... */
+    baseUrl: process.env.CI === "true" ? "/react-motion-dnd" : "/",
   },
   proxy: {
     /* ... */
