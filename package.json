@@ -1,4 +1,15 @@
 {
+  "name": "react-motion-dnd",
+  "version": "0.1.0",
+  "description": "Drag and drop library for react with beautiful animations",
+  "repository": "Pajn/react-motion-dnd",
+  "homepage": "https://pajn.github.io/react-motion-dnd/",
+  "author": "Rasmus Eneman <rasmus@eneman.eu>",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "!/**/__tests__"
+  ],
   "scripts": {
     "start": "snowpack dev",
     "build": "tsc --build tsconfig.build.json",
