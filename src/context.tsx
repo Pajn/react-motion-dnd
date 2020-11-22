@@ -3,11 +3,16 @@ import React, { createContext, ReactNode, useState } from "react"
 import type { DragType } from "./dragType"
 import { createEventController, EventController } from "./events"
 
+/** @internal */
 export type DndContext = {
   dragStart: EventController<OngoingDrag>
 }
+/** @internal */
 export const dndContext = createContext<DndContext>(undefined as any)
 
+/**
+ * @beta
+ */
 export const DndProvider = (props: { children: ReactNode }) => {
   const [context] = useState<DndContext>(() => ({
     dragStart: createEventController(),
@@ -18,6 +23,9 @@ export const DndProvider = (props: { children: ReactNode }) => {
   )
 }
 
+/**
+ * @beta
+ */
 export type OngoingDrag = Readonly<{
   startPoint: PanInfo
   data: Map<DragType<unknown>, unknown>
@@ -30,6 +38,9 @@ export type OngoingDrag = Readonly<{
   droppedInDropZone: EventController<void>
 }>
 
+/**
+ * @beta
+ */
 export const OngoingDrag = {
   create(startPoint: PanInfo): OngoingDrag {
     return {

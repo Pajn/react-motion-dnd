@@ -10,6 +10,9 @@ import {
 import { dndContext, OngoingDrag } from "./context"
 import { pointInsideRectangle } from "./geometry"
 
+/**
+ * @beta
+ */
 export function useDrop(options?: {
   ref?: MutableRefObject<HTMLElement | null>
   onDrop?: (drag: OngoingDrag, info: PanInfo) => void

@@ -1,12 +1,17 @@
+/**
+ * @beta
+ */
 export type Unsubscribe = () => void
 
+/**
+ * @beta
+ */
 export type EventController<T> = {
   subscribe: (cb: (event: T) => void) => Unsubscribe
   fire: (event: T) => void
 }
 
-export type EventSource<T> = Pick<EventController<T>, "subscribe">
-
+/** @internal */
 export function createEventController<T>(): EventController<T> {
   const subscribers: Array<(event: T) => void> = []
 

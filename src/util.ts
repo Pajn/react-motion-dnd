@@ -1,9 +1,11 @@
 import { useRef } from "react"
 
+/** @internal */
 export function assertType<T>(value: T) {
   return value
 }
 
+/** @internal */
 export function createSequence() {
   let nextId = 1
 

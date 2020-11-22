@@ -1,9 +1,15 @@
 import type { DraggableProps, LayoutProps, PanInfo } from "framer-motion"
 import { useContext, useEffect, useRef, useState } from "react"
 import { dndContext, OngoingDrag } from "./context"
-import { createDragType } from "./dragType"
+import { createDragType, DragType } from "./dragType"
 import { getBoundingClientRectIgnoringTransforms } from "./geometry"
 
+/** @internal */
+export type _DragType<T> = DragType<T>
+
+/**
+ * @alpha
+ */
 export const pointerOffset = createDragType<{ top: number; left: number }>(
   "pointer-offset",
 )
@@ -15,6 +21,9 @@ const dragConstraintsBounceBack = {
   bottom: 0,
 } as const
 
+/**
+ * @beta
+ */
 export function useDrag(options?: {
   onDragStart?: (drag: OngoingDrag, info: PanInfo) => void
   onDragMove?: (drag: OngoingDrag, info: PanInfo) => void

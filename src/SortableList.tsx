@@ -86,6 +86,9 @@ const listInfo = createDragType<ListInfo>("list-info")
 const useListId = createSequence()
 const spacerKey = {}
 
+/**
+ * @beta
+ */
 export type SortableListProps<T, U, C> = {
   items: Array<T>
   moveItem: (fromIndex: number, toIndex: number, item: T) => void
@@ -99,6 +102,9 @@ export type SortableListProps<T, U, C> = {
   removeItem?: (item: U, fromIndex: number) => void
 }
 
+/**
+ * @beta
+ */
 export const SortableList = <
   T extends object,
   U extends object = never,
@@ -372,6 +378,9 @@ const Spacer = (props: { size: Size }) => {
   )
 }
 
+/**
+ * @beta
+ */
 export function useSortabeListItem() {
   const listContext = useContext(sortableListContext)
   const { item, index } = useContext(listItemContext)

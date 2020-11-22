@@ -1,12 +1,35 @@
 name: Test
 on: [push]
+
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: "14"
+
+      - name: Install
+        run: yarn
+
+      - name: Formatting check
+        run: yarn format::check
+
+      - name: API check
+        run: yarn api::check
+        continue-on-error: true
+
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - uses: docker://buildkite/puppeteer
+
       - name: Install
         run: yarn
+
       - name: Test
         run: yarn test

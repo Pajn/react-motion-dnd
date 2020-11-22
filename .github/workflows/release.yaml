@@ -2,6 +2,7 @@ name: Release
 on:
   release:
     types: [published]
+
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
@@ -16,6 +17,12 @@ jobs:
 
       - name: Install
         run: yarn
+
+      - name: Formatting check
+        run: yarn format::check
+
+      - name: API check
+        run: yarn api::check
 
       - name: Build
         run: yarn build-docs

@@ -1,14 +1,22 @@
 import type { BoundingBox2D, Point2D } from "framer-motion"
 
+/** @internal */
 export const pointInsideRectangle = (box: BoundingBox2D, point: Point2D) => {
   return (
-    box.top < point.y &&
-    box.bottom > point.y &&
-    box.left < point.x &&
-    box.right > point.x
+    box.top <= point.y &&
+    box.bottom >= point.y &&
+    box.left <= point.x &&
+    box.right >= point.x
   )
 }
 
+/**
+ * `el.getBoundingClientRect()` but ignoring transforms currently applied
+ * to the element. Used to get the elements actual position, not where it
+ * appears to be due to animations.
+ *
+ * @internal
+ */
 export function getBoundingClientRectIgnoringTransforms(el: HTMLElement) {
   let rect = el.getBoundingClientRect()
   let style = getComputedStyle(el)
